@@ -6,6 +6,7 @@
 <title>Haven Rewards Calculator</title>
 
 <style>
+/* PAGE LAYOUT */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
     background-color: #ffffff;
@@ -26,7 +27,7 @@ body {
     position: relative;
 }
 
-/* Header layout */
+/* HEADER */
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -37,7 +38,6 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* Logo block */
 .logo-and-text {
     display: flex;
     align-items: flex-start;
@@ -50,7 +50,11 @@ body {
     flex-shrink: 0;
 }
 
-/* Brand title & tagline */
+.haven-logo-svg text {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
+}
+
+/* Right of logo */
 .brand-lines {
     display: flex;
     flex-direction: column;
@@ -73,7 +77,7 @@ body {
     letter-spacing: 0.01em;
 }
 
-/* PDF button */
+/* PDF BUTTON */
 .print-btn {
     background-color: #62766c;
     border: none;
@@ -89,7 +93,7 @@ body {
     background-color: #54665e;
 }
 
-/* Section titles */
+/* FORM SECTIONS */
 .section-label {
     font-size: 0.8rem;
     text-transform: uppercase;
@@ -100,7 +104,6 @@ body {
     font-weight: 600;
 }
 
-/* Dropdowns */
 select {
     width: 100%;
     background-color: #ffffff;
@@ -115,7 +118,7 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(98,118,108,0.25);
 }
 
-/* Checkbox */
+/* LOYALTY CHECKBOX */
 .checkbox-row {
     display: flex;
     align-items: flex-start;
@@ -133,7 +136,7 @@ select:focus {
     accent-color: #62766c;
 }
 
-/* Calculate button */
+/* CALCULATE BUTTON */
 .calc-btn {
     width: 100%;
     background-color: #62766c;
@@ -151,7 +154,7 @@ select:focus {
     background-color: #54665e;
 }
 
-/* Results */
+/* RESULTS CARD */
 .results-card {
     background-color: #ffffff;
     border: 1px solid #62766c;
@@ -159,6 +162,7 @@ select:focus {
     padding: 1rem 1.2rem;
     margin-top: 1.5rem;
 }
+
 .results-row {
     display: flex;
     justify-content: space-between;
@@ -168,6 +172,7 @@ select:focus {
 .results-row .label {
     color: #374151;
 }
+
 .highlight-number {
     font-size: 1.4rem;
     font-weight: 600;
@@ -187,7 +192,91 @@ select:focus {
     margin-top: 1rem;
 }
 
-/* Footer */
+/* REFERENCE TABLES SECTION */
+.reference-section {
+    margin-top: 2rem;
+    background-color: #ffffff;
+    border: 1px solid #62766c;
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+}
+
+.ref-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #305f4c;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
+}
+
+.ref-note {
+    font-size: 0.7rem;
+    color: #6b7280;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+/* TABLE STYLING */
+.ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.ref-table th {
+    background-color: #f3f6f4;
+    color: #1a1a1a;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid #cbd5d1;
+    padding: 0.6rem 0.5rem;
+    vertical-align: top;
+    font-size: 0.75rem;
+    line-height: 1.2;
+}
+
+.ref-table td {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #cbd5d1;
+    padding: 0.6rem 0.5rem;
+    vertical-align: top;
+    line-height: 1.3;
+}
+
+/* CONDITION CARD */
+.condition-box {
+    background-color: #f9fafb;
+    border: 1px solid #cbd5d1;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+}
+
+.condition-box-title {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.condition-box ul {
+    margin: 0;
+    padding-left: 1rem;
+    line-height: 1.4;
+    color: #111;
+    font-size: 0.8rem;
+}
+.condition-box li {
+    margin-bottom: 0.3rem;
+}
+
+/* FOOTER */
 .site-footer {
     text-align: center;
     font-size: 0.7rem;
@@ -198,11 +287,6 @@ select:focus {
     color: #62766c;
     font-weight: 500;
 }
-
-/* SVG text fix */
-.haven-logo-svg text {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, sans-serif;
-}
 </style>
 </head>
 <body>
@@ -211,15 +295,30 @@ select:focus {
     <!-- HEADER -->
     <header class="app-header">
         <div class="logo-and-text">
+            <!-- Inline SVG Haven logo -->
             <svg class="haven-logo-svg" viewBox="0 0 120 120" aria-label="Haven logo">
+                <!-- pale green circle -->
                 <circle cx="60" cy="50" r="40" fill="#eaf5ef" />
+
+                <!-- chair (deep green) -->
+                <!-- chair back -->
                 <rect x="40" y="32" width="40" height="8" rx="2" fill="#305f4c"/>
+                <!-- seat -->
                 <rect x="40" y="40" width="40" height="10" rx="2" fill="#305f4c"/>
+                <!-- support bar -->
                 <rect x="40" y="28" width="40" height="6" rx="2" fill="#305f4c"/>
+                <!-- legs -->
                 <rect x="44" y="50" width="6" height="20" rx="2" fill="#305f4c"/>
                 <rect x="57" y="50" width="6" height="20" rx="2" fill="#305f4c"/>
                 <rect x="70" y="50" width="6" height="20" rx="2" fill="#305f4c"/>
-                <text x="60" y="92" text-anchor="middle" font-size="12" font-weight="700" letter-spacing="0.07em" fill="#305f4c">
+
+                <!-- HAVEN word under the circle -->
+                <text x="60" y="92"
+                    text-anchor="middle"
+                    font-size="12"
+                    font-weight="700"
+                    letter-spacing="0.07em"
+                    fill="#305f4c">
                     HAVEN
                 </text>
             </svg>
@@ -268,24 +367,149 @@ select:focus {
 
     <button class="calc-btn" id="calcBtn">Calculate My Points</button>
 
+    <!-- RESULTS -->
     <div class="results-card" id="resultsCard">
-        <div class="results-row"><div class="label">Base Points (size):</div><div id="basePointsText">-</div></div>
-        <div class="results-row"><div class="label">Material Multiplier:</div><div id="matMultText">-</div></div>
-        <div class="results-row"><div class="label">Condition Multiplier:</div><div id="condMultText">-</div></div>
-        <div class="results-row"><div class="label">Bonus Points:</div><div id="bonusPointsText">-</div></div>
+        <div class="results-row">
+            <div class="label">Base Points (size):</div>
+            <div id="basePointsText">-</div>
+        </div>
+
+        <div class="results-row">
+            <div class="label">Material Multiplier:</div>
+            <div id="matMultText">-</div>
+        </div>
+
+        <div class="results-row">
+            <div class="label">Condition Multiplier:</div>
+            <div id="condMultText">-</div>
+        </div>
+
+        <div class="results-row">
+            <div class="label">Bonus Points:</div>
+            <div id="bonusPointsText">-</div>
+        </div>
 
         <div class="highlight-number" id="totalPointsText">0 pts</div>
         <div class="credit-display" id="creditText">$0.00 in Haven credit</div>
-        <div class="disclaimer">Estimate only. Final value may vary based on inspection and material recovery.</div>
+        <div class="disclaimer">
+            Estimate only. Final value may vary based on inspection and material recovery.
+        </div>
     </div>
+
+    <!-- REFERENCE TABLES -->
+    <div class="reference-section">
+
+        <div class="ref-title">Item Size Value Guide</div>
+        <div class="ref-note">
+            Heavier / bulkier items earn more base points. 1 point ≈ $0.10 Haven credit.
+        </div>
+
+        <table class="ref-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Example</th>
+                    <th>Points</th>
+                    <th>Approx. Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Light (&lt;7 lbs)</td>
+                    <td>Lamp, Stool</td>
+                    <td>50 pts</td>
+                    <td>$5 Credit</td>
+                </tr>
+                <tr>
+                    <td>Medium (7–40 lbs)</td>
+                    <td>Chair, Small desk</td>
+                    <td>100 pts</td>
+                    <td>$10 Credit</td>
+                </tr>
+                <tr>
+                    <td>Large (40–100 lbs)</td>
+                    <td>Sofa, Table</td>
+                    <td>200 pts</td>
+                    <td>$20 Credit</td>
+                </tr>
+                <tr>
+                    <td>Extra Large (&gt;100 lbs)</td>
+                    <td>Wardrobe, Bed</td>
+                    <td>300 pts</td>
+                    <td>$30 Credit</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="condition-box">
+            <div class="condition-box-title">Condition Adjustment</div>
+            <ul>
+                <li><strong>Like New</strong>: ×1.2</li>
+                <li><strong>Slightly Used</strong>: ×1.0</li>
+                <li><strong>Need Repair</strong>: ×0.8</li>
+                <li><strong>Broken</strong>: ×0.6</li>
+            </ul>
+        </div>
+
+        <div class="ref-title">Material Recovery Guide</div>
+        <div class="ref-note">
+            Some materials have higher resale or recycling value — they’re multiplied up.
+        </div>
+
+        <table class="ref-table">
+            <thead>
+                <tr>
+                    <th>Material Type</th>
+                    <th>Multiplier</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Metal</td>
+                    <td>×1.3</td>
+                    <td>Easy to recycle + high resale scrap value</td>
+                </tr>
+                <tr>
+                    <td>Wood</td>
+                    <td>×1.2</td>
+                    <td>Reusable for refurbish or resale</td>
+                </tr>
+                <tr>
+                    <td>Glass</td>
+                    <td>×1.1</td>
+                    <td>Medium recycling ease</td>
+                </tr>
+                <tr>
+                    <td>Engineered Wood (MDF / plywood)</td>
+                    <td>×0.8</td>
+                    <td>Often laminated — harder to separate</td>
+                </tr>
+                <tr>
+                    <td>Plastic / Mixed Material</td>
+                    <td>×0.6</td>
+                    <td>Low recyclability, high labor cost</td>
+                </tr>
+                <tr>
+                    <td>Foam / Fabric Upholstery</td>
+                    <td>×0.5</td>
+                    <td>High disposal cost, low resale</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <!-- END REFERENCE TABLES -->
 
     <footer class="site-footer">
         Haven Circular Systems<br />
-        <span class="version">v1.6 — internal use only</span>
+        <span class="version">v1.7 — internal use only</span>
     </footer>
-</div>
+
+</div> <!-- /.app-shell -->
 
 <script>
+/* Points logic */
 const sizePoints = { light: 50, medium: 100, large: 200, xl: 300 };
 const materialMultiplier = {
     metal: 1.3,
@@ -313,10 +537,9 @@ function calcPoints() {
     const condMult = conditionMultiplier[conditionVal];
 
     const corePoints = basePts * matMult * condMult;
-    let bonus = referred ? 100 : 0;
-
+    const bonus = referred ? 100 : 0;
     const totalPoints = corePoints + bonus;
-    const creditUSD = totalPoints * 0.10;
+    const creditUSD = totalPoints * 0.10; // $0.10 per point
 
     document.getElementById("basePointsText").textContent = basePts + " pts";
     document.getElementById("matMultText").textContent = "× " + matMult.toFixed(2);
@@ -325,8 +548,11 @@ function calcPoints() {
     document.getElementById("totalPointsText").textContent = totalPoints.toFixed(2) + " pts";
     document.getElementById("creditText").textContent = "$" + creditUSD.toFixed(2) + " in Haven credit";
 }
+
+/* hook button + run once */
 document.getElementById("calcBtn").addEventListener("click", calcPoints);
 calcPoints();
 </script>
+
 </body>
 </html>
